@@ -36,6 +36,10 @@ public class Main {
         double avg = avgArray(randomNumbers);
         System.out.println("Average: " + avg);
 
+        String text = "Šiandien labai graži diena";
+        tekstas(text);
+
+
     }
 
     public static int sudetis(int int1, int int2) {
@@ -98,4 +102,19 @@ public class Main {
         return (double) sum / array.length;
     }
 
+    public static void tekstas(String inputSentence){
+        int rsk = 0;
+        int tsk = 0;
+
+        for (char c : inputSentence.toCharArray()) {
+            if (Character.isLetter(c)) {
+                rsk++;
+            } else if (Character.isWhitespace(c)) {
+                tsk++;
+            }
+        }
+
+        System.out.println("Raides: " + rsk);
+        System.out.println("Tarpai: " + tsk);
+    }
 }
