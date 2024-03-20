@@ -21,8 +21,20 @@ public class Main {
         int randomNum = getRandom(min, max);
         System.out.println("Skaicius: " + randomNum);
 
-        int[] randArr = randArr (5, 9, 10)
+        int minRandom = 1;
+        int maxRandom = 100;
+        int length = 10;
+        int[] randomNumbers = randomas(minRandom, maxRandom, length);
 
+        System.out.println("Random numeriai:");
+        for (int num : randomNumbers) {
+            System.out.print(num + " ");
+        }
+        int sum = sumArray(randomNumbers);
+        System.out.println("\nSuma: " + sum);
+
+        double avg = avgArray(randomNumbers);
+        System.out.println("Average: " + avg);
 
     }
 
@@ -50,13 +62,40 @@ public class Main {
     public static int getRandom(int min, int max) {
         return min + (int) (Math.random() * (max - min + 1));
     }
-//    Sukurkite Funkciją kuri sugeneruotų random int skaičių masyvą ir jį gražintų. Funkcija priima tris int tipo kintamuosius, min, max ir length
-    public static int sestas(int min, int max, int lenght){
-        for (int i = 0; i < lenght; i++) {
-            System.out.println(arr[i] + " ");
 
+    // Sukurkite Funkciją kuri sugeneruotų random int skaičių masyvą ir jį gražintų. Funkcija priima tris int tipo kintamuosius, min, max ir length
+    public static int[] randomas(int min, int max, int length) {
+        if (length <= 0) {
+            System.out.println("Ilgis turi buti didesnis uz 0");
         }
+        if (min >= max) {
+            System.out.println("max turi buti daugiau uz min");
+        }
+
+        int[] randomArray = new int[length];
+
+        for (int i = 0; i < length; i++) {
+            int randomNum = (int) (Math.random() * (max - min + 1)) + min;
+            randomArray[i] = randomNum;
+        }
+
+        return randomArray;
     }
 
+    public static int sumArray(int[] array) {
+        int sum = 0;
+        for (int num : array) {
+            sum += num;
+        }
+        return sum;
+    }
+
+    public static double avgArray(int[] array) {
+        int sum = 0;
+        for (int num : array) {
+            sum += num;
+        }
+        return (double) sum / array.length;
+    }
 
 }
