@@ -39,6 +39,10 @@ public class Main {
         String text = "Šiandien labai graži diena";
         tekstas(text);
 
+        String inputTxt = "Gediminas";
+        String revTxt = reversed(inputTxt);
+        System.out.println("Reversed: " + revTxt);
+
 
     }
 
@@ -102,7 +106,7 @@ public class Main {
         return (double) sum / array.length;
     }
 
-    public static void tekstas(String inputSentence){
+    public static void tekstas(String inputSentence) {
         int rsk = 0;
         int tsk = 0;
 
@@ -117,4 +121,17 @@ public class Main {
         System.out.println("Raides: " + rsk);
         System.out.println("Tarpai: " + tsk);
     }
+
+    public static String reversed(String input) {
+        char[] charArray = input.toCharArray();
+
+        for (int i = 0; i < charArray.length / 2; i++) {
+            char temp = charArray[i];
+            charArray[i] = charArray[charArray.length - 1 - i];
+            charArray[charArray.length - 1 - i] = temp;
+        }
+
+        return new String(charArray);
+    }
 }
+
