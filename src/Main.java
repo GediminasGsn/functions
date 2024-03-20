@@ -47,6 +47,13 @@ public class Main {
         String dash = formatas("---" + inputT + "---");
         System.out.println(dash);
 
+        String randomString = generateRndStr(10);
+        System.out.println("Random String: " + randomString);
+
+        String inputText = "A1B23C456D7E";
+        System.out.println("Input Text: " + inputText);
+        randomStripSplit(inputText);
+
     }
 
     public static int sudetis(int int1, int int2) {
@@ -123,6 +130,17 @@ public class Main {
 
         System.out.println("Raides: " + rsk);
         System.out.println("Tarpai: " + tsk);
+
+
+
+//        String randomText = generateRndStr(10);
+//        System.out.println("Random text: " + randomText);
+//        randomStripSplit(randomText);
+        int length = 10;
+        String text = generateRndStr (length);
+        randomStripSplit(text);
+        System.out.println(text);
+
     }
 
     public static String reversed(String input) {
@@ -141,5 +159,38 @@ public class Main {
         return input;
     }
 
-}
+    public static String generateRndStr(int length) {
+        String symbols = "ABCDEFGHIJKLMNOPQRSTUVWXYZ12345678901234567890";
+        String text = "";
+        for (int i = 0; i < length; i++) {
+            text += symbols.charAt((int) (Math.random() * symbols.length()));
+        }
+        return text;
+    }
+
+    public static void randomStripSplit(String txt) {
+        String number = "";
+
+        for (int i = 0; i < txt.length(); i++) {
+            char currentChar = txt.charAt(i);
+            if (Character.isDigit(currentChar)) {
+                number += currentChar;
+            } else {
+                if (!number.isEmpty()) {
+                    System.out.println("[" + number + "]");
+                    number = "";
+                }
+                System.out.println(currentChar);
+            }
+        }
+        if (!number.isEmpty()) {
+            System.out.println("[" + number + "]");
+        }
+    }
+
+    }
+
+
+
+
 
