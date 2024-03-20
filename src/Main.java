@@ -39,10 +39,13 @@ public class Main {
         String text = "Šiandien labai graži diena";
         tekstas(text);
 
-        String inputTxt = "Gediminas";
+        String inputTxt = "ragadunda";
         String revTxt = reversed(inputTxt);
         System.out.println("Reversed: " + revTxt);
 
+        String inputT = "mano vardas gediminas";
+        String dash = formatas("---" + inputT + "---");
+        System.out.println(dash);
 
     }
 
@@ -133,5 +136,10 @@ public class Main {
 
         return new String(charArray);
     }
+
+    public static String formatas(String input){
+        return input;
+    }
+
 }
 
